@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acta Visita - Storecheck</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="top">
+        <img class="logo" src="/assets/P&G Real.png" alt="logo p&g">
+        <img class="logo" src="/assets/Logo1.png" alt="logo v&m">
+    </header>
+    <h1 class="tittle">Acta Visita - Storecheck</h1>
+    <form>
+        <!-- Información del Punto de Venta -->
+        <fieldset>
+            <legend>Información del Punto de Venta</legend>
+            <div class="form-group">
+                <label for="nombre-pos">Nombre POS:</label>
+                <input type="text" id="nombre-pos" name="nombre-pos" oninput="filterNames()">
+                
+            </div>
+            <div class="form-group">
+                <label for="regional">Regional:</label>
+                <input type="text" id="regional" name="regional">
+            </div>
+            <div class="form-group">
+                <label for="fecha">Fecha:</label>
+                <input type="date" id="fecha" name="fecha">
+            </div>
+        </fieldset>
+
+        <!-- Calificación -->
+        <fieldset>
+            <legend>Canal</legend>
+            <div class="form-group">
+                <label for="calificacion">Canal:</label>
+                <input type="text" id="Canal" name="Canal" step="0.1" max="5">
+            </div>
+
+            <div class="form-group">
+                <label for="calificacion">Subcanal:</label>
+                <input type="text" id="Subcanal" name="Subcanal" step="0.1" max="5">
+            </div>
+        </fieldset>
+
+        <!-- Calificación -->
+        <fieldset>
+            <legend>Calificación</legend>
+            <div class="form-group">
+                <label for="calificacion">Calificación Final:</label>
+                <input type="number" id="calificacion" name="calificacion" step="0.1" max="5">
+            </div>
+        </fieldset>
+
+        <!-- Hallazgos -->
+        <fieldset>
+            <legend>Calificación </legend>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Categoría</th>
+                        <th>Calificación</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>MAXIMIZACIÓN DE DESCUENTOS</td>
+                        <td>
+                            <select name="maximizacion-descuentos">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>EJECUCIÓN PERFECT STORES</td>
+                        <td>
+                            <select name="ejecucion-perfect-stores">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>EJECUCIÓN PLANING</td>
+                        <td>
+                            <select name="ejecucion-planing">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>EXHIBICIONES ADICIONALES</td>
+                        <td>
+                            <select name="exhibiciones-adicionales">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>VISIBILIDAD MARCAS EN LINEALES</td>
+                        <td>
+                            <select name="visibilidad-marcas">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <!-- Agrega aquí las categorías restantes si es necesario -->
+                </tbody>
+            </table>
+        </fieldset>
+        <!-- Categorías Visitadas -->
+        <fieldset>
+            <legend>Categorías Visitadas</legend>
+            <div class="form-group">
+                <label><input type="checkbox" name="categorias" value="Detergentes"> Detergentes</label>
+                <label><input type="checkbox" name="categorias" value="Suavizantes"> Suavizantes</label>
+                <label><input type="checkbox" name="categorias" value="Cuidado capilar"> Cuidado capilar</label>
+                <label><input type="checkbox" name="categorias" value="Afeitado"> Afeitado</label>
+                <label><input type="checkbox" name="categorias" value="Cuidado oral"> Cuidado oral</label>
+                <label><input type="checkbox" name="categorias" value="Desodorantes"> Desodorantes</label>
+                <label><input type="checkbox" name="categorias" value="Cuidado de la salud"> Cuidado de la salud</label>
+                <label><input type="checkbox" name="categorias" value="Puestos de pago"> Puestos de pago</label>
+                <label><input type="checkbox" name="categorias" value="Higiene personal"> Higiene personal</label>
+            </div>
+        </fieldset>
+
+        <!-- Share -->
+        <fieldset>
+            <legend>Share</legend>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Categoría</th>
+                        <th>SOS</th>
+                        <th>OBSERVACION</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Afeitado Hombre</td>
+                        <td><input type="number" name="share-cat1" min="0"></td>
+                        <td><input type="text" name="share-cat1"></td>
+                    </tr>
+                    <tr>
+                        <td>Afeitado Mujer</td>
+                        <td><input type="number" name="share-cat2" min="0"></td>
+                        <td><input type="text" name="share-cat1"></td>
+                    </tr>
+                    <tr>
+                        <td>Cepillos Dentales Adultos</td>
+                        <td><input type="number" name="share-cat3" min="0"></td>
+                        <td><input type="text" name="share-cat1"></td>
+                    </tr>
+                    <tr>
+                        <td>Cremas Dentales Adultos</td>
+                        <td><input type="number" name="share-cat4" min="0"></td>
+                        <td><input type="text" name="share-cat1"></td>
+                    </tr>
+                    <tr>
+                        <td>Cuidado del Cabello</td>
+                        <td><input type="number" name="share-cat5" min="0"></td>
+                        <td><input type="text" name="share-cat1"></td>
+                    </tr>
+                    <tr>
+                        <td>Desodorantes</td>
+                        <td><input type="number" name="share-cat6" min="0"></td>
+                        <td><input type="text" name="share-cat1"></td>
+                    </tr>
+                    <tr>
+                        <td>Detergentes en Polvo</td>
+                        <td><input type="number" name="share-cat7" min="0"></td>
+                        <td><input type="text" name="share-cat1"></td>
+                    </tr>
+                    <tr>
+                        <td>Detergentes Liquidos</td>
+                        <td><input type="number" name="share-cat8" min="0"></td>
+                        <td><input type="text" name="share-cat1"></td>
+                    </tr>
+                    <tr>
+                        <td>Gripa & Tos</td>
+                        <td><input type="number" name="share-cat9" min="0"></td>
+                        <td><input type="text" name="share-cat1"></td>
+                    </tr>
+                    <tr>
+                        <td>Multivitaminico</td>
+                        <td><input type="number" name="share-cat10" min="0"></td>
+                        <td><input type="text" name="share-cat1"></td>
+                    </tr>
+                    <tr>
+                        <td>Suavizantes</td>
+                        <td><input type="number" name="share-cat11" min="0"></td>
+                        <td><input type="text" name="share-cat1"></td>
+                    </tr>
+                    <tr>
+                        <td>Vitamina C</td>
+                        <td><input type="number" name="share-cat12" min="0"></td>
+                        <td><input type="text" name="share-cat1"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </fieldset>
+
+        <!-- Distribución -->
+<fieldset>
+    <legend>Distribución</legend>
+    <table>
+        <thead>
+            <tr>
+                <th>Categoría</th>
+                <th>ESTADO</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Afeitado Hombre</td>
+                <td>
+                    <select name="dist-cat1">
+                        <option value="cumple">Cumple</option>
+                        <option value="no-cumple">No cumple</option>
+                    </select>
+                </td>
+                
+            </tr>
+            <tr>
+                <td>Afeitado Mujer</td>
+                <td>
+                    <select name="dist-cat2">
+                        <option value="cumple">Cumple</option>
+                        <option value="no-cumple">No cumple</option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Cepillos Dentales Adultos</td>
+                <td>
+                    <select name="dist-cat3">
+                        <option value="cumple">Cumple</option>
+                        <option value="no-cumple">No cumple</option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Cremas Dentales Adultos</td>
+                <td>
+                    <select name="dist-cat4">
+                        <option value="cumple">Cumple</option>
+                        <option value="no-cumple">No cumple</option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Cuidado del Cabello</td>
+                <td>
+                    <select name="dist-cat5">
+                        <option value="cumple">Cumple</option>
+                        <option value="no-cumple">No cumple</option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Desodorantes</td>
+                <td>
+                    <select name="dist-cat6">
+                        <option value="cumple">Cumple</option>
+                        <option value="no-cumple">No cumple</option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Detergentes en Polvo</td>
+                <td>
+                    <select name="dist-cat7">
+                        <option value="cumple">Cumple</option>
+                        <option value="no-cumple">No cumple</option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Detergentes Liquidos</td>
+                <td>
+                    <select name="dist-cat8">
+                        <option value="cumple">Cumple</option>
+                        <option value="no-cumple">No cumple</option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Gripa & Tos</td>
+                <td>
+                    <select name="dist-cat9">
+                        <option value="cumple">Cumple</option>
+                        <option value="no-cumple">No cumple</option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Multivitaminico</td>
+                <td>
+                    <select name="dist-cat10">
+                        <option value="cumple">Cumple</option>
+                        <option value="no-cumple">No cumple</option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Suavizantes</td>
+                <td>
+                    <select name="dist-cat11">
+                        <option value="cumple">Cumple</option>
+                        <option value="no-cumple">No cumple</option>
+                    </select>
+                </td>
+            </tr>
+            
+            <tr>
+                <td>Vitaminas C</td>
+                <td>
+                    <select name="dist-cat12">
+                        <option value="cumple">Cumple</option>
+                        <option value="no-cumple">No cumple</option>
+                    </select>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</fieldset>
+
+<!-- Agotados -->
+<fieldset>
+    <legend>¿Desea agregar un SKU agotado?</legend>
+    <div class="form-group">
+        <label><input type="radio" name="add-out-of-stock" value="si" onclick="showOutOfStockFields()"> Sí</label>
+        <label><input type="radio" name="add-out-of-stock" value="no" onclick="hideOutOfStockFields()"> No</label>
+    </div>
+    <div id="out-of-stock-records" class="hidden">
+        <table id="out-of-stock-table">
+            <thead>
+                <tr>
+                    <th>Nombre SKU</th>
+                    <th>Módulo Afectado</th>
+                    <th>Observación</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Filas se añadirán aquí dinámicamente -->
+            </tbody>
+        </table>
+        <button type="button" onclick="addOutOfStockRecord()">Agregar Registro</button>
+    </div>
+</fieldset>
+
+<script>
+    let outOfStockCount = 0;
+
+    function showOutOfStockFields() {
+        document.getElementById('out-of-stock-records').classList.remove('hidden');
+        if (outOfStockCount === 0) addOutOfStockRecord();
+    }
+
+    function hideOutOfStockFields() {
+        document.getElementById('out-of-stock-records').classList.add('hidden');
+    }
+
+    function addOutOfStockRecord() {
+        if (outOfStockCount >= 10) return; // Limite de 10 registros
+        
+        outOfStockCount++;
+        
+        const tableBody = document.querySelector('#out-of-stock-table tbody');
+        const row = document.createElement('tr');
+        
+        row.innerHTML = `
+            <td><input type="text" name="sku-name-${outOfStockCount}" placeholder="Nombre SKU"></td>
+            <td><input type="text" name="module-affected-${outOfStockCount}" placeholder="Módulo Afectado"></td>
+            <td><input type="text" name="observation-${outOfStockCount}" placeholder="Observación"></td>
+        `;
+        
+        tableBody.appendChild(row);
+    }
+</script>
+
+    <!-- VISIBILITY ON SHELF (VOS) -->
+<fieldset>
+    <legend>VISIBILITY ON SHELF (VOS)</legend>
+    <table>
+        <thead>
+            <tr>
+                <th>Categoría</th>
+                <th>ESTADO</th>
+                <th>DESCRIPCION</th>
+                <th>OBSERVACION</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Afeitado Hombre</td>
+                <td>
+                    <select name="share-cat1">
+                        <option value="cumple">Cumple</option>
+                        <option value="no-cumple">No cumple</option>
+                    </select>
+                </td>
+                <td>
+                    <select name="share-cat1">
+                        <option value="Producto no codificado">Producto no codificado</option>
+                        <option value="Remodelación parcial">Remolelacion parcial</option>
+                        <option value="Modificaciones LYOUT">Modificaciones LYOUT</option>
+                        <option value="Cliente no esta interesado en la negociacion">Cliente no esta interesado en la negociacion</option>
+                        <option value="Agotados">Agotados</option>
+                        <option value="Sin novedad">Sin novedad</option>
+                    </select>
+                </td>
+                <td><input type="text" name="obs-cat1"></td>
+            </tr>
+            <tr>
+                <td>Afeitado Mujer</td>
+                <td>
+                    <select name="share-cat2">
+                        <option value="cumple">Cumple</option>
+                        <option value="no-cumple">No cumple</option>
+                    </select>
+                </td>
+                <td>
+                    <select name="share-cat1">
+                        <option value="Producto no codificado">Producto no codificado</option>
+                        <option value="Remodelación parcial">Remolelacion parcial</option>
+                        <option value="Modificaciones LYOUT">Modificaciones LYOUT</option>
+                        <option value="Cliente no esta interesado en la negociacion">Cliente no esta interesado en la negociacion</option>
+                        <option value="Agotados">Agotados</option>
+                        <option value="Sin novedad">Sin novedad</option>
+                    </select>
+                </td>
+
+                <td><input type="text" name="obs-cat2"></td>
+            </tr>
+            <tr>
+                <td>Cepillos Dentales Adultos</td>
+                <td>
+                    <select name="share-cat3">
+                        <option value="cumple">Cumple</option>
+                        <option value="no-cumple">No cumple</option>
+                    </select>
+                </td>
+                <td>
+                    <select name="share-cat1">
+                        <option value="Producto no codificado">Producto no codificado</option>
+                        <option value="Remodelación parcial">Remolelacion parcial</option>
+                        <option value="Modificaciones LYOUT">Modificaciones LYOUT</option>
+                        <option value="Cliente no esta interesado en la negociacion">Cliente no esta interesado en la negociacion</option>
+                        <option value="Agotados">Agotados</option>
+                        <option value="Sin novedad">Sin novedad</option>
+                    </select>
+                </td>
+
+                <td><input type="text" name="obs-cat3"></td>
+            </tr>
+            <tr>
+                <td>Cremas Dentales Adultos</td>
+                <td>
+                    <select name="share-cat4">
+                        <option value="cumple">Cumple</option>
+                        <option value="no-cumple">No cumple</option>
+                    </select>
+                </td>
+                <td>
+                    <select name="share-cat1">
+                        <option value="Producto no codificado">Producto no codificado</option>
+                        <option value="Remodelación parcial">Remolelacion parcial</option>
+                        <option value="Modificaciones LYOUT">Modificaciones LYOUT</option>
+                        <option value="Cliente no esta interesado en la negociacion">Cliente no esta interesado en la negociacion</option>
+                        <option value="Agotados">Agotados</option>
+                        <option value="Sin novedad">Sin novedad</option>
+                    </select>
+                </td>
+
+                <td><input type="text" name="obs-cat4"></td>
+            </tr>
+            <tr>
+                <td>Cuidado del Cabello</td>
+                <td>
+                    <select name="share-cat5">
+                        <option value="cumple">Cumple</option>
+                        <option value="no-cumple">No cumple</option>
+                    </select>
+                </td>
+
+                <td>
+                    <select name="share-cat1">
+                        <option value="Producto no codificado">Producto no codificado</option>
+                        <option value="Remodelación parcial">Remolelacion parcial</option>
+                        <option value="Modificaciones LYOUT">Modificaciones LYOUT</option>
+                        <option value="Cliente no esta interesado en la negociacion">Cliente no esta interesado en la negociacion</option>
+                        <option value="Agotados">Agotados</option>
+                        <option value="Sin novedad">Sin novedad</option>
+                    </select>
+                </td>
+                <td><input type="text" name="obs-cat5"></td>
+            </tr>
+            <tr>
+                <td>Desodorantes</td>
+                <td>
+                    <select name="share-cat6">
+                        <option value="cumple">Cumple</option>
+                        <option value="no-cumple">No cumple</option>
+                    </select>
+                </td>
+                <td>
+                    <select name="share-cat1">
+                        <option value="Producto no codificado">Producto no codificado</option>
+                        <option value="Remodelación parcial">Remolelacion parcial</option>
+                        <option value="Modificaciones LYOUT">Modificaciones LYOUT</option>
+                        <option value="Cliente no esta interesado en la negociacion">Cliente no esta interesado en la negociacion</option>
+                        <option value="Agotados">Agotados</option>
+                        <option value="Sin novedad">Sin novedad</option>
+                    </select>
+                </td>
+                <td><input type="text" name="obs-cat6"></td>
+            </tr>
+            <tr>
+                <td>Detergentes en Polvo</td>
+                <td>
+                    <select name="share-cat7">
+                        <option value="cumple">Cumple</option>
+                        <option value="no-cumple">No cumple</option>
+                    </select>
+                </td>
+                <td>
+                    <select name="share-cat1">
+                        <option value="Producto no codificado">Producto no codificado</option>
+                        <option value="Remodelación parcial">Remolelacion parcial</option>
+                        <option value="Modificaciones LYOUT">Modificaciones LYOUT</option>
+                        <option value="Cliente no esta interesado en la negociacion">Cliente no esta interesado en la negociacion</option>
+                        <option value="Agotados">Agotados</option>
+                        <option value="Sin novedad">Sin novedad</option>
+                    </select>
+                </td>
+                <td><input type="text" name="obs-cat7"></td>
+            </tr>
+            <tr>
+                <td>Detergentes Líquidos</td>
+                <td>
+                    <select name="share-cat8">
+                        <option value="cumple">Cumple</option>
+                        <option value="no-cumple">No cumple</option>
+                    </select>
+                </td>
+                <td>
+                    <select name="share-cat1">
+                        <option value="Producto no codificado">Producto no codificado</option>
+                        <option value="Remodelación parcial">Remolelacion parcial</option>
+                        <option value="Modificaciones LYOUT">Modificaciones LYOUT</option>
+                        <option value="Cliente no esta interesado en la negociacion">Cliente no esta interesado en la negociacion</option>
+                        <option value="Agotados">Agotados</option>
+                        <option value="Sin novedad">Sin novedad</option>
+                    </select>
+                </td>
+                <td><input type="text" name="obs-cat8"></td>
+            </tr>
+            <tr>
+                <td>Gripa & Tos</td>
+                <td>
+                    <select name="share-cat9">
+                        <option value="cumple">Cumple</option>
+                        <option value="no-cumple">No cumple</option>
+                    </select>
+                </td>
+                <td>
+                    <select name="share-cat1">
+                        <option value="Producto no codificado">Producto no codificado</option>
+                        <option value="Remodelación parcial">Remolelacion parcial</option>
+                        <option value="Modificaciones LYOUT">Modificaciones LYOUT</option>
+                        <option value="Cliente no esta interesado en la negociacion">Cliente no esta interesado en la negociacion</option>
+                        <option value="Agotados">Agotados</option>
+                        <option value="Sin novedad">Sin novedad</option>
+                    </select>
+                </td>
+                <td><input type="text" name="obs-cat9"></td>
+            </tr>
+            <tr>
+                <td>Multivitamínico</td>
+                <td>
+                    <select name="share-cat10">
+                        <option value="cumple">Cumple</option>
+                        <option value="no-cumple">No cumple</option>
+                    </select>
+                </td>
+                <td>
+                    <select name="share-cat1">
+                        <option value="Producto no codificado">Producto no codificado</option>
+                        <option value="Remodelación parcial">Remolelacion parcial</option>
+                        <option value="Modificaciones LYOUT">Modificaciones LYOUT</option>
+                        <option value="Cliente no esta interesado en la negociacion">Cliente no esta interesado en la negociacion</option>
+                        <option value="Agotados">Agotados</option>
+                        <option value="Sin novedad">Sin novedad</option>
+                    </select>
+                </td>
+                <td><input type="text" name="obs-cat10"></td>
+            </tr>
+            <tr>
+                <td>Suavizantes</td>
+                <td>
+                    <select name="share-cat11">
+                        <option value="cumple">Cumple</option>
+                        <option value="no-cumple">No cumple</option>
+                    </select>
+                </td>
+                <td>
+                    <select name="share-cat1">
+                        <option value="Producto no codificado">Producto no codificado</option>
+                        <option value="Remodelación parcial">Remolelacion parcial</option>
+                        <option value="Modificaciones LYOUT">Modificaciones LYOUT</option>
+                        <option value="Cliente no esta interesado en la negociacion">Cliente no esta interesado en la negociacion</option>
+                        <option value="Agotados">Agotados</option>
+                        <option value="Sin novedad">Sin novedad</option>
+                    </select>
+                </td>
+                <td><input type="text" name="obs-cat11"></td>
+            </tr>
+            <tr>
+                <td>Vitamina C</td>
+                <td>
+                    <select name="share-cat12">
+                        <option value="cumple">Cumple</option>
+                        <option value="no-cumple">No cumple</option>
+                    </select>
+                </td>
+                <td>
+                    <select name="share-cat1">
+                        <option value="Producto no codificado">Producto no codificado</option>
+                        <option value="Remodelación parcial">Remolelacion parcial</option>
+                        <option value="Modificaciones LYOUT">Modificaciones LYOUT</option>
+                        <option value="Cliente no esta interesado en la negociacion">Cliente no esta interesado en la negociacion</option>
+                        <option value="Agotados">Agotados</option>
+                        <option value="Sin novedad">Sin novedad</option>
+                    </select>
+                </td>
+                <td><input type="text" name="obs-cat12"></td>
+            </tr>
+        </tbody>
+    </table>
+</fieldset>
+
+    
+    <!-- PENETRACIÓN PUESTOS DE PAGO -->
+    <fieldset>
+        <legend>PENETRACIÓN PUESTOS DE PAGO</legend>
+        <table>
+            <thead>
+                <tr>
+                    <th>Categoría</th>
+                    <th>ESTADO</th>
+                    <th>UNIVERSO</th>
+                    <th>PENETRACION P&G</th>
+                    <th>OBSERVACION</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Afeitado</td>
+                    <td>
+                        <select name="share-cat1">
+                            <option value="cumple">Cumple</option>
+                            <option value="no-cumple">No cumple</option>
+                        </select>
+                    </td>
+                    <td><input type="number" name="obs-cat1" min="0"></td>
+                    <td><input type="number" name="obs-cat1" min="0"></td>
+                    <td><input type="text" name="obs-cat1"></td>
+                    
+                </tr>
+                <tr>
+                    <td>Cuidado oral</td>
+                    <td>
+                        <select name="share-cat2">
+                            <option value="cumple">Cumple</option>
+                            <option value="no-cumple">No cumple</option>
+                        </select>
+                    </td>
+                    <td><input type="text" name="obs-cat2"></td>
+                    <td><input type="number" name="obs-cat2" min="0"></td>
+                    <td><input type="number" name="obs-cat2" min="0"></td>
+                </tr>
+                
+                
+            </tbody>
+        </table>
+    </fieldset>
+
+    <!-- NUEVO GRUPO CON REGISTRO FOTOGRÁFICO -->
+<fieldset>
+    <legend>Registro Fotográfico</legend>
+    <table>
+        <thead>
+            <tr>
+                <th>Categoría</th>
+                <th>Adjuntar Foto</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Lineal de Fabric Care</td>
+                <td>
+                    <input type="file" name="foto-cat1" accept="image/*">
+                </td>
+            </tr>
+            <tr>
+                <td>Lineal de Suavizantes</td>
+                <td>
+                    <input type="file" name="foto-cat2" accept="image/*">
+                </td>
+            </tr>
+            <tr>
+                <td>Lineal de Hair Care</td>
+                <td>
+                    <input type="file" name="foto-cat3" accept="image/*">
+                </td>
+            </tr>
+            <tr>
+                <td>Lineal de Oral Care</td>
+                <td>
+                    <input type="file" name="foto-cat4" accept="image/*">
+                </td>
+            </tr>
+            <tr>
+                <td>Lineal de Shave Care</td>
+                <td>
+                    <input type="file" name="foto-cat5" accept="image/*">
+                </td>
+            </tr>
+            <tr>
+                <td>Lineal de Apdos</td>
+                <td>
+                    <input type="file" name="foto-cat6" accept="image/*">
+                </td>
+            </tr>
+            <tr>
+                <td>Lineal de PHCI</td>
+                <td>
+                    <input type="file" name="foto-cat7" accept="image/*">
+                </td>
+            </tr>
+            <tr>
+                <td>Check Outs</td>
+                <td>
+                    <input type="file" name="foto-cat8" accept="image/*">
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</fieldset>
+
+        <!-- Observaciones -->
+        <fieldset>
+            <legend>Observaciones</legend>
+            <div class="form-group">
+                <label for="observaciones">Observaciones:</label>
+                <textarea id="observaciones" name="observaciones"></textarea>
+            </div>
+        </fieldset>
+
+        <!-- Sugerencias -->
+        <fieldset>
+            <legend>Sugerencias</legend>
+            <div class="form-group">
+                <label for="sugerencias">Sugerencias:</label>
+                <textarea id="sugerencias" name="sugerencias"></textarea>
+            </div>
+        </fieldset>
+
+        <!-- I&O Records for Photos -->
+<fieldset>
+    <legend>Desea agregar un registro de I&O para fotos?</legend>
+    <div class="form-group">
+        <label><input type="radio" name="add-io-photos" value="si" onclick="showPhotoFields()"> Sí</label>
+        <label><input type="radio" name="add-io-photos" value="no" onclick="hidePhotoFields()"> No</label>
+    </div>
+    <div id="photo-records" class="hidden">
+        <table id="photo-table">
+            <thead>
+                <tr>
+                    <th>Nombre Iniciativa</th>
+                    <th>Archivo</th>
+                    <th>Observación</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Filas se añadirán aquí dinámicamente -->
+            </tbody>
+        </table>
+        <button type="button" onclick="addPhotoRecord()">Agregar Registro</button>
+    </div>
+</fieldset>
+
+<script>
+    let photoCount = 0;
+
+    function showPhotoFields() {
+        document.getElementById('photo-records').classList.remove('hidden');
+        if (photoCount === 0) addPhotoRecord();
+    }
+
+    function hidePhotoFields() {
+        document.getElementById('photo-records').classList.add('hidden');
+    }
+
+    function addPhotoRecord() {
+        if (photoCount >= 10) return; // Limite de 10 registros
+        
+        photoCount++;
+        
+        const tableBody = document.querySelector('#photo-table tbody');
+        const row = document.createElement('tr');
+        
+        row.innerHTML = `
+            <td><input type="text" name="nombre-foto-${photoCount}"></td>
+            <td><input type="file" name="archivo-foto-${photoCount}" accept="image/*"></td>
+            <td><input type="text" name="observacion-foto-${photoCount}"></td>
+        `;
+        
+        tableBody.appendChild(row);
+    }
+</script>
+
+        <!-- Submit Button -->
+        <div class="form-group">
+            <button type="submit">Enviar</button>
+        </div>
+    </form>
+</body>
+</html>
